@@ -85,6 +85,6 @@ systemctl enable cart &>> $LOGFILE &>> $LOGFILE
 
 VALIDATE $? "Enabling cart"
 
-systemctl start catalogue &>> $LOGFILE
+systemctl start cart &>> $LOGFILE
 
 VALIDATE $? "Starting cart"
