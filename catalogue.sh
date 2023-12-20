@@ -57,7 +57,7 @@ VALIDATE $? "Zipping roboshop catalogue"
 
 cd /app 
 
-unzip /tmp/catalogue.zip &>> $LOGFILE
+unzip /tmp/catalogue.zip 
 
 VALIDATE $? "Unzipping roboshop catalogue"
 
@@ -91,6 +91,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host $MONGO_HOST </app/schema/catalogue.js 
+mongo --host $MONGO_HOST </app/schema/catalogue.js &>> $LOGFILE
  
 VALIDATE $? "Adding mongodb host address to catalogue "
