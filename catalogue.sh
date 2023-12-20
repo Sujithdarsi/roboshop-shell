@@ -53,8 +53,6 @@ else
     echo -e "Already added .... $Y Skipping $N"
 fi
 
-VALIDATE $? "Adding user to roboshop"
-
 mkdir -p /app &>> $LOGFILE
 
 VALIDATE $? "Creating directory"
