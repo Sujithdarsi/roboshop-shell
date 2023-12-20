@@ -68,7 +68,7 @@ npm install &>> $LOGFILE
 
 VALIDATE $? "Installing packages"
 
-cp /home/centos/roboshop-shell/catalogue.service /home/centos/roboshop-shell &>> $LOGFILE
+cp /home/centos/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service  &>> $LOGFILE
 
 VALIDATE $? "Adding data to catalogue.service"
 
