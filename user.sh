@@ -44,7 +44,7 @@ dnf install nodejs -y &>> $LOGFILE
 
 VALIDATE $? "Installing nodejs"
  
- id roboshop
+id roboshop
 if [ $? -ne 0 ]
 then 
     useradd roboshop
@@ -81,13 +81,13 @@ systemctl daemon-reload &>> $LOGFILE
 
 VALIDATE $? "Reloading the daemon"
 
-systemctl enable catalogue &>> $LOGFILE
+systemctl enable user &>> $LOGFILE
 
-VALIDATE $? "Enabling catalogue"
+VALIDATE $? "Enabling user"
 
-systemctl start catalogue &>> $LOGFILE
+systemctl start user &>> $LOGFILE
 
-VALIDATE $? "Starting catalogue"
+VALIDATE $? "Starting user"
 
 cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 
