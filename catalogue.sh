@@ -3,7 +3,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 
-MONGO_HOST=mongodb.daws23.online
 
 R="\e[31m"
 G="\e[32m"
@@ -97,6 +96,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host $MONGO_HOST </app/schema/catalogue.js &>> $LOGFILE
+mongo --host mongodb.daws23.online </app/schema/catalogue.js &>> $LOGFILE
  
 VALIDATE $? "Adding mongodb host address to catalogue "
