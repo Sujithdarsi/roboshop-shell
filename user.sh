@@ -97,6 +97,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongod client"
 
-mongo --host $MONGO_HOST </app/schema/user.js &>> $LOGFILE
+mongo --host mongodb.daws23.online </app/schema/user.js &>> $LOGFILE
 
 VALIDATE $? "Adding mongo host IP"
