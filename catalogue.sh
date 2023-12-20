@@ -17,6 +17,7 @@ VALIDATE(){
     if [ $1 -ne 0 ]
     then
         echo -e " $2 ... $R Installation Unsuccessful $N "
+        exit 1
     else
         echo -e " $2 ... $G Installion Successful $N "
     fi
@@ -43,11 +44,18 @@ dnf install nodejs -y &>> $LOGFILE
 
 VALIDATE $? "Installing nodejs"
  
-useradd roboshop &>> $LOGFILE
+id roboshop
+if [ $? -ne 0 ]
+then 
+    useradd roboshop
+    VALIDATE $? "Adding user to roboshop"
+else
+    echo -e "Already added .... $Y Skipping $N"
+fi
 
 VALIDATE $? "Adding user to roboshop"
 
-mkdir /app &>> $LOGFILE
+mkdir -p /app &>> $LOGFILE
 
 VALIDATE $? "Creating directory"
 
@@ -57,7 +65,7 @@ VALIDATE $? "Zipping roboshop catalogue"
 
 cd /app 
 
-unzip /tmp/catalogue.zip 
+unzip -o /tmp/catalogue.zip 
 
 VALIDATE $? "Unzipping roboshop catalogue"
 
@@ -91,6 +99,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host $MONGO_HOST </app/schema/catalogue.js 
+mongo --host $MONGO_HOST </app/schema/catalogue.js &>> $LOGFILE
  
 VALIDATE $? "Adding mongodb host address to catalogue "
