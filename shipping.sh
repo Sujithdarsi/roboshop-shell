@@ -30,7 +30,7 @@ else
     echo -e " $G You are root user $N "
 fi
 
-dnf install maven -y
+dnf install maven -y &>> $LOGFILE
 
 VALIDATE $? "Installing maven"
 
