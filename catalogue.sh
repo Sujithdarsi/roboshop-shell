@@ -9,6 +9,8 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+MONGO_HOST=mongodb.daws23.online
+
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 
 VALIDATE(){
@@ -96,6 +98,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host mongodb.daws23.online </app/schema/catalogue.js &>> $LOGFILE
+mongo --host $MONGO_HOST </app/schema/catalogue.js &>> $LOGFILE
  
 VALIDATE $? "Adding mongodb host address to catalogue "
