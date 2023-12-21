@@ -63,7 +63,7 @@ mvn clean package &>> $LOGFILE
 
 VALIDATE $? "Installing clean package"
 
-cp shipping.service /etc/systemd/system/shipping.service &>> $LOGFILE
+cp /home/centos/roboshop-shell/shipping.service /etc/systemd/system/shipping.service 
 
 VALIDATE $? "Copying shipping.service"
 
