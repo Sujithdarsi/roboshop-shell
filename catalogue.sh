@@ -96,6 +96,6 @@ dnf install mongodb-org-shell -y &>> $LOGFILE
 
 VALIDATE $? "Installing mongodb client"
 
-mongo --host 172.31.37.115 </app/schema/catalogue.js &>> $LOGFILE
+mongo --host mongodb.daws23.online </app/schema/catalogue.js &>> $LOGFILE
  
 VALIDATE $? "Adding mongodb host address to catalogue "

@@ -47,7 +47,7 @@ mkdir -p /app &>> $LOGFILE
 
 VALIDATE $? "Creating directory"
 
-curl -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $LOGFILE
+curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $LOGFILE
  
 VALIDATE $? "Zipping roboshop shipping"
 
