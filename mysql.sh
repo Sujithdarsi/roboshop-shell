@@ -30,6 +30,26 @@ else
     echo -e " $G You are root user $N "
 fi
 
-dnf module disable mysql -y
+dnf module disable mysql -y &>> $LOGFILE
 
 VALIDATE $? "nodejs disabling"
+
+cp mysql.repo /etc/yum.repos.d/mysql.repo &>> $LOGFILE
+
+VALIDATE $? "copying mysql repo"
+
+dnf install mysql-community-server -y &>> $LOGFILE
+
+VALIDATE $? "installing mysql"
+
+systemctl enable mysqld &>> $LOGFILE
+
+VALIDATE $? "Enabling mysql"
+
+systemctl start mysqld &>> $LOGFILE
+ 
+VALIDATE $? "Starting mysql"
+
+mysql_secure_installation --set-root-pass RoboShop@1 &>> $LOGFILE
+
+VALIDATE $? "Setting root password"
